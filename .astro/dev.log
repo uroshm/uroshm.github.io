@@ -1,50 +1,31 @@
-{"message":"connected.","label":"vite","level":"info"}
-{"message":"Generated 0ms","label":"types","level":"info"}
-{"message":"connected.","label":"vite","level":"info"}
-{"message":"Syncing content","label":"content","level":"info"}
-{"message":"Synced content","label":"content","level":"info"}
-{"message":"Re-optimizing dependencies because vite config has changed","label":"vite","level":"info"}
-{"message":"Port 4321 is in use, trying another one...","label":"vite","level":"info"}
-{"message":" astro  v7.2.4 ready in 652 ms\n┃ Local    http://localhost:4322/\n┃ Network  use --host to expose","label":"SKIP_FORMAT","level":"info"}
-{"message":"watching for file changes...","label":null,"level":"info"}
-{"message":"[200] / 10ms","label":null,"level":"info"}
-{"message":"Configuration file updated. Restarting...","label":null,"level":"info"}
-{"message":"connected.","label":"vite","level":"info"}
-{"message":"connected.","label":"vite","level":"info"}
-{"message":"Re-optimizing dependencies because lockfile has changed","label":"vite","level":"info"}
-{"message":"server restarted.","label":"vite","level":"info"}
-{"message":"Configuration file updated. Restarting...","label":null,"level":"info"}
-{"message":"connected.","label":"vite","level":"info"}
-{"message":"connected.","label":"vite","level":"info"}
-{"message":"Re-optimizing dependencies because vite config has changed","label":"vite","level":"info"}
-{"message":"server restarted.","label":"vite","level":"info"}
-{"message":"Configuration file updated. Restarting...","label":null,"level":"info"}
-{"message":"connected.","label":"vite","level":"info"}
-{"message":"Syncing content","label":"content","level":"info"}
-{"message":"Content config changed","label":"content","level":"info"}
-{"message":"Clearing content store","label":"content","level":"info"}
-{"message":"Failed to update routes via HMR:\n TypeError: undefined is not a function","label":"router","level":"error"}
-{"message":"Failed to update routes via HMR:\n TypeError: undefined is not a function","label":"router","level":"error"}
-{"message":"Failed to update routes via HMR:\n TypeError: undefined is not a function","label":"router","level":"error"}
-{"message":"Failed to update routes via HMR:\n TypeError: undefined is not a function","label":"router","level":"error"}
-{"message":"Failed to update routes via HMR:\n TypeError: undefined is not a function","label":"router","level":"error"}
-{"message":"Failed to update routes via HMR:\n TypeError: undefined is not a function","label":"router","level":"error"}
-{"message":"Failed to update routes via HMR:\n TypeError: undefined is not a function","label":"router","level":"error"}
-{"message":"connected.","label":"vite","level":"info"}
-{"message":"Reloaded data from using-mdx.mdx","label":"glob-loader","level":"info"}
-{"message":"Reloaded data from second-post.md","label":"glob-loader","level":"info"}
-{"message":"Reloaded data from third-post.md","label":"glob-loader","level":"info"}
-{"message":"Failed to update routes via HMR:\n TypeError: undefined is not a function","label":"router","level":"error"}
-{"message":"Failed to update routes via HMR:\n TypeError: undefined is not a function","label":"router","level":"error"}
-{"message":"Failed to update routes via HMR:\n TypeError: undefined is not a function","label":"router","level":"error"}
-{"message":"Failed to update routes via HMR:\n TypeError: undefined is not a function","label":"router","level":"error"}
-{"message":"Failed to update routes via HMR:\n TypeError: undefined is not a function","label":"router","level":"error"}
-{"message":"Failed to update routes via HMR:\n TypeError: undefined is not a function","label":"router","level":"error"}
-{"message":"Failed to update routes via HMR:\n TypeError: undefined is not a function","label":"router","level":"error"}
-{"message":"Class extends value undefined is not a constructor or null","label":"vite","level":"error"}
-{"message":"server restart failed","label":"vite","level":"error"}
-{"message":"Failed to update routes via HMR:\n TypeError: undefined is not a function","label":"router","level":"error"}
-{"message":"Failed to update routes via HMR:\n TypeError: undefined is not a function","label":"router","level":"error"}
-{"message":"Failed to update routes via HMR:\n TypeError: undefined is not a function","label":"router","level":"error"}
-{"message":"Failed to update routes via HMR:\n TypeError: undefined is not a function","label":"router","level":"error"}
-{"message":"Synced content","label":"content","level":"info"}
+12:53:43 [vite] connected.
+12:53:44 [types] Generated 0ms
+12:53:44 [vite] connected.
+12:53:44 [content] Syncing content
+12:53:44 [content] Astro config changed
+12:53:44 [content] Clearing content store
+12:53:44 [content] Synced content
+12:53:44 [vite] Re-optimizing dependencies because vite config has changed
+12:53:44 [vite] Port 4321 is in use, trying another one...
+ astro  v7.2.4 ready in 663 ms
+┃ Local    http://localhost:4322/
+┃ Network  use --host to expose
+12:53:44 watching for file changes...
+12:53:45 [200] / 17ms
+12:53:45 [200] / 2ms
+12:53:51 [200] / 4ms
+12:53:52 [200] / 5ms
+12:53:56 [200] /blog 11ms
+12:53:56 [200] /_image 43ms
+12:53:56 [200] /_image 43ms
+12:53:56 [200] /_image 44ms
+12:53:56 [200] /_image 45ms
+12:53:56 [200] /_image 57ms
+12:53:57 [200] / 4ms
+12:53:57 [200] /about 10ms
+12:53:57 [200] /_image 37ms
+12:53:58 [200] / 5ms
+12:54:19 [200] / 4ms
+12:54:20 [watch] /src/styles/global.css
+12:54:20 [200] / 14ms
+12:54:26 [200] / 5ms
