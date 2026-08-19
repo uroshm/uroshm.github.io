@@ -1,31 +1,60 @@
-12:53:43 [vite] connected.
-12:53:44 [types] Generated 0ms
-12:53:44 [vite] connected.
-12:53:44 [content] Syncing content
-12:53:44 [content] Astro config changed
-12:53:44 [content] Clearing content store
-12:53:44 [content] Synced content
-12:53:44 [vite] Re-optimizing dependencies because vite config has changed
-12:53:44 [vite] Port 4321 is in use, trying another one...
- astro  v7.2.4 ready in 663 ms
-┃ Local    http://localhost:4322/
-┃ Network  use --host to expose
-12:53:44 watching for file changes...
-12:53:45 [200] / 17ms
-12:53:45 [200] / 2ms
-12:53:51 [200] / 4ms
-12:53:52 [200] / 5ms
-12:53:56 [200] /blog 11ms
-12:53:56 [200] /_image 43ms
-12:53:56 [200] /_image 43ms
-12:53:56 [200] /_image 44ms
-12:53:56 [200] /_image 45ms
-12:53:56 [200] /_image 57ms
-12:53:57 [200] / 4ms
-12:53:57 [200] /about 10ms
-12:53:57 [200] /_image 37ms
-12:53:58 [200] / 5ms
-12:54:19 [200] / 4ms
-12:54:20 [watch] /src/styles/global.css
-12:54:20 [200] / 14ms
-12:54:26 [200] / 5ms
+{"message":"connected.","label":"vite","level":"info"}
+{"message":"Generated 0ms","label":"types","level":"info"}
+{"message":"connected.","label":"vite","level":"info"}
+{"message":"Syncing content","label":"content","level":"info"}
+{"message":"Synced content","label":"content","level":"info"}
+{"message":"Re-optimizing dependencies because vite config has changed","label":"vite","level":"info"}
+{"message":"Port 4321 is in use, trying another one...","label":"vite","level":"info"}
+{"message":" astro  v7.2.4 ready in 629 ms\n┃ Local    http://localhost:4322/\n┃ Network  use --host to expose","label":"SKIP_FORMAT","level":"info"}
+{"message":"watching for file changes...","label":null,"level":"info"}
+{"message":"[200] / 17ms","label":null,"level":"info"}
+{"message":"[200] / 6ms","label":null,"level":"info"}
+{"message":"[200] / 4ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 14ms","label":null,"level":"info"}
+{"message":"[200] / 5ms","label":null,"level":"info"}
+{"message":"[200] / 3ms","label":null,"level":"info"}
+{"message":"[200] / 3ms","label":null,"level":"info"}
+{"message":"[200] / 4ms","label":null,"level":"info"}
+{"message":"[200] / 6ms","label":null,"level":"info"}
+{"message":"[200] / 3ms","label":null,"level":"info"}
+{"message":"[200] / 4ms","label":null,"level":"info"}
+{"message":"[200] / 4ms","label":null,"level":"info"}
+{"message":"[200] / 5ms","label":null,"level":"info"}
+{"message":"[200] / 3ms","label":null,"level":"info"}
+{"message":"[200] / 5ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 10ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 8ms","label":null,"level":"info"}
+{"message":"[200] / 2ms","label":null,"level":"info"}
+{"message":"[200] /blog 7ms","label":null,"level":"info"}
+{"message":"[200] /_image 60ms","label":null,"level":"info"}
+{"message":"[200] /_image 61ms","label":null,"level":"info"}
+{"message":"[200] /_image 63ms","label":null,"level":"info"}
+{"message":"[200] /_image 64ms","label":null,"level":"info"}
+{"message":"[200] /_image 79ms","label":null,"level":"info"}
+{"message":"[200] /blog/first-post 8ms","label":null,"level":"info"}
+{"message":"[200] /_image 61ms","label":null,"level":"info"}
+{"message":"[200] /blog 7ms","label":null,"level":"info"}
+{"message":"[200] / 1ms","label":null,"level":"info"}
+{"message":"[200] /about 5ms","label":null,"level":"info"}
+{"message":"[200] / 1ms","label":null,"level":"info"}
+{"message":"[200] / 2ms","label":null,"level":"info"}
+{"message":"[200] / 1ms","label":null,"level":"info"}
+{"message":"[200] / 1ms","label":null,"level":"info"}
+{"message":"[200] / 14ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 5ms","label":null,"level":"info"}
+{"message":"[200] /blog/first-post 5ms","label":null,"level":"info"}
+{"message":"[200] /_image 49ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 5ms","label":null,"level":"info"}
+{"message":"[200] / 5ms","label":null,"level":"info"}
+{"message":"[200] / 4ms","label":null,"level":"info"}
+{"message":"[200] / 5ms","label":null,"level":"info"}
+{"message":"[200] / 11ms","label":null,"level":"info"}
+{"message":"[200] / 12ms","label":null,"level":"info"}
