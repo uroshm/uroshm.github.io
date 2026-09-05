@@ -518,7 +518,7 @@ li::marker {
   border-radius: 999px;
   color: var(--accent-warm);
   background: rgba(246, 193, 119, 0.08);
-  content: "Profile";
+  content: "Writing";
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -536,53 +536,6 @@ li::marker {
   color: #d9e7ff;
   font-size: clamp(1.15rem, 2.4vw, 1.5rem);
   line-height: 1.5;
-}
-
-.home > h2 {
-  margin: 3.5rem 0 1.5rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--border);
-}
-
-.home > ul {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.25rem;
-  max-width: 100%;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.home > ul li {
-  margin: 0;
-  padding: 1.35rem;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  color: var(--text);
-  background:
-    linear-gradient(135deg, rgba(79, 209, 197, 0.08), transparent 42%),
-    var(--bg-elevated);
-  box-shadow: var(--box-shadow);
-  font-size: 1.05rem;
-  line-height: 1.4;
-  transition:
-    border-color 0.25s ease,
-    transform 0.25s ease;
-}
-
-.home > ul li:hover {
-  border-color: var(--border-strong);
-  transform: translateY(-3px);
-}
-
-.home > ul li::before {
-  display: block;
-  width: 1.75rem;
-  height: 2px;
-  margin-bottom: 0.9rem;
-  background: linear-gradient(90deg, var(--accent), var(--accent-warm));
-  content: "";
 }
 
 /* ---------- Elements ---------- */
@@ -649,10 +602,6 @@ hr {
 
   .home > h1 {
     max-width: none;
-  }
-
-  .home > ul {
-    grid-template-columns: 1fr;
   }
 }
 

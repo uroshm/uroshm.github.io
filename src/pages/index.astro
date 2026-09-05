@@ -2,7 +2,8 @@
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-import { getEntry, render } from "astro:content";
+import PostList from "../components/PostList.astro";
+import { getCollection, getEntry, render } from "astro:content";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 
 const page = await getEntry("pages", "index");
@@ -12,6 +13,12 @@ if (!page) {
 }
 
 const { Content } = await render(page);
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const recent = posts.slice(0, 5);
 ---
 
 <!doctype html>
@@ -26,7 +33,37 @@ const { Content } = await render(page);
     <Header />
     <main class="home">
       <Content />
+      <section class="latest">
+        <h2>Latest posts</h2>
+        <PostList posts={recent} />
+        <a class="more" href="/blog">All posts</a>
+      </section>
     </main>
     <Footer />
   </body>
 </html>
+
+<style>
+  .latest {
+    margin-top: 3.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .latest h2 {
+    margin: 0 0 0.5rem;
+  }
+
+  .more {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: var(--accent-strong);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .more:hover,
+  .more:focus-visible {
+    text-decoration: underline;
+  }
+</style>
