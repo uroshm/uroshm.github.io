@@ -86,7 +86,7 @@ Software engineer, technical lead, and builder.
   <div class="project-grid">
     <article class="project-card">
       <h3>Tomas’ Spaceship</h3>
-      <p>A father-son game we built together to make learning about astronomy and the planets an adventure across space.</p>
+      <p>A father-son game we built together to learn about astronomy and the planets through an adventure across space.</p>
       <nav class="project-links" aria-label="Tomas’ Spaceship links">
         <a href="https://uroshm.github.io/tomas-spaceship/">Play the game <span aria-hidden="true">↗</span></a>
         <a href="https://github.com/uroshm/tomas-spaceship">Source code <span aria-hidden="true">↗</span></a>
