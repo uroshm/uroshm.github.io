@@ -1,6 +1,10 @@
-# Uros Milojkovic
-
-Software engineer, technical lead, and builder.
+<section class="home-hero" aria-label="Profile introduction">
+  <div>
+    <h1>Uros Milojkovic</h1>
+    <p>Software engineer, technical lead, and builder.</p>
+  </div>
+  <img class="profile-photo" src="/images/uros-headshot.png" alt="Uros Milojkovic" width="196" height="196" />
+</section>
 
 <section class="profile-section" aria-labelledby="experience-heading">
   <h2 id="experience-heading">Experience</h2>

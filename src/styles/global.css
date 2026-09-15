@@ -526,16 +526,32 @@ li::marker {
   text-transform: uppercase;
 }
 
-.home > h1 {
+.home-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(8rem, 12.25rem);
+  align-items: center;
+  gap: clamp(1.5rem, 5vw, 4rem);
+}
+
+.home-hero h1 {
   max-width: 16ch;
 }
 
-.home > h1 + p {
+.home-hero p {
   max-width: 40ch;
   margin-bottom: 0;
   color: #d9e7ff;
   font-size: clamp(1.15rem, 2.4vw, 1.5rem);
   line-height: 1.5;
+}
+
+.profile-photo {
+  width: min(100%, 12.25rem);
+  aspect-ratio: 1;
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  box-shadow: var(--box-shadow);
+  object-fit: cover;
 }
 
 .home > h2 {
@@ -834,8 +850,17 @@ hr {
     padding: 2.5rem 0;
   }
 
-  .home > h1 {
+  .home-hero {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .home-hero h1 {
     max-width: none;
+  }
+
+  .profile-photo {
+    width: 8.75rem;
   }
 
   .home > ul {

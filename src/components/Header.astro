@@ -1,14 +1,9 @@
 ---
-import { SITE_TITLE } from "../consts";
 import HeaderLink from "./HeaderLink.astro";
 ---
 
 <header>
   <nav>
-    <a class="brand" href="/" aria-label={`${SITE_TITLE} home`}>
-      <span class="brand-mark" aria-hidden="true"></span>
-      <span>{SITE_TITLE}</span>
-    </a>
     <div class="internal-links">
       <HeaderLink href="/">Home</HeaderLink>
     </div>
@@ -32,29 +27,6 @@ import HeaderLink from "./HeaderLink.astro";
     margin: 0 auto;
     padding: 0.85rem 0;
     gap: 1rem;
-  }
-
-  .brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.65rem;
-    color: var(--text);
-    font-size: 0.95rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-decoration: none;
-    text-transform: uppercase;
-  }
-
-  .brand-mark {
-    width: 0.85rem;
-    height: 0.85rem;
-    border: 1px solid var(--accent);
-    border-radius: 999px;
-    background:
-      radial-gradient(circle at 35% 35%, #ffffff 0 12%, transparent 13%),
-      linear-gradient(135deg, var(--accent), var(--accent-warm));
-    box-shadow: 0 0 28px rgba(79, 209, 197, 0.48);
   }
 
   .internal-links {
