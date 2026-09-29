@@ -1,7 +1,7 @@
 <section class="home-hero" aria-label="Profile introduction">
   <div>
     <h1>Uros Milojkovic</h1>
-    <p>Lead software engineer &amp; technical lead.<br />Java, AWS &amp; distributed systems.</p>
+    <p>Senior software engineer &amp; technical lead.<br />Java, AWS &amp; distributed systems.</p>
     <nav class="project-links" aria-label="Contact and profile links">
       <a href="mailto:uroshm@gmail.com">Email me</a>
       <a href="https://github.com/uroshm">GitHub <span aria-hidden="true">↗</span></a>
