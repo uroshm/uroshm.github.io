@@ -3,4 +3,4 @@
 
 export const SITE_TITLE = "Uros Milojkovic";
 export const SITE_DESCRIPTION =
-  "Software engineer, technical lead, and builder.";
+  "Uros Milojkovic — lead software engineer and technical lead specializing in Java, AWS, distributed systems, and AI engineering.";
