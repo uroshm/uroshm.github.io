@@ -21,7 +21,7 @@
         </div>
         <p class="resume-dates">Apr 2022–present</p>
       </header>
-      <p>Provide technical direction for Java/Spring Boot platforms supporting thousands of daily biometrics appointments nationwide. Lead architecture and delivery across NASS and myUSCIS, including scheduler modernization, self-service rescheduling, international scheduling, and identity/token modernization.</p>
+      <p>Provide technical direction for Java/Spring Boot platforms supporting thousands of daily biometrics appointments nationwide. Lead architecture and delivery across NASS, including scheduler modernization, self-service rescheduling, international scheduling, and identity/token modernization.</p>
       <p>As Capability Lead for Forward Deployed Software Engineering, set technical strategy and develop engineers through mentorship, training, hackathons, and reusable practices. Coordinate delivery across REST APIs, Kafka, Kubernetes/Rancher, and GitHub Actions; expanded integration and performance testing and led framework migrations, raising automated coverage above 90%.</p>
     </article>
     <article class="resume-entry">
