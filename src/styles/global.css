@@ -1,402 +1,80 @@
+/* Shared layout, with three intentionally restrained palettes. */
 :root {
-  color-scheme: dark;
-  --bg: #050812;
-  --bg-elevated: rgba(14, 22, 43, 0.72);
-  --bg-soft: rgba(255, 255, 255, 0.04);
-  --text: #eef6ff;
-  --muted: #9ba9c5;
-  --subtle: #687797;
-  --border: rgba(158, 177, 211, 0.18);
-  --border-strong: rgba(158, 177, 211, 0.34);
-  --accent: #4fd1c5;
-  --accent-strong: #7dd3fc;
-  --accent-warm: #f6c177;
-  --accent-alert: #f472b6;
-  --black: 238, 246, 255;
-  --gray: 155, 169, 197;
-  --gray-light: 35, 46, 75;
-  --gray-dark: 238, 246, 255;
+  color-scheme: light;
+  --bg: #fafbfc;
+  --bg-elevated: #ffffff;
+  --bg-soft: #eef2f6;
+  --text: #182638;
+  --muted: #526174;
+  --subtle: #626f80;
+  --border: #dce2e9;
+  --border-strong: #b1becd;
+  --accent: #2356a0;
+  --accent-strong: #193f78;
+  --accent-warm: #526174;
+  --accent-alert: #a3304b;
+  --black: 24, 38, 56;
+  --gray: 82, 97, 116;
+  --gray-light: 238, 242, 246;
+  --gray-dark: 24, 38, 56;
   --shell: min(100% - 2rem, 1080px);
-  --box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+  --box-shadow: 0 8px 24px rgb(24 38 56 / 5%);
+  --heading-font: var(--font-atkinson), ui-sans-serif, system-ui, sans-serif;
+  --card-radius: 10px;
+}
+
+:root[data-theme="graphite"] {
+  color-scheme: dark;
+  --bg: #171a1e;
+  --bg-elevated: #20252b;
+  --bg-soft: #282e36;
+  --text: #edf0f4;
+  --muted: #b4bdc9;
+  --subtle: #a0aabb;
+  --border: #363e49;
+  --border-strong: #626e7e;
+  --accent: #9dbdf6;
+  --accent-strong: #c2d5fa;
+  --accent-warm: #b4bdc9;
+  --black: 237, 240, 244;
+  --gray: 180, 189, 201;
+  --gray-light: 40, 46, 54;
+  --gray-dark: 237, 240, 244;
+  --box-shadow: none;
+  --card-radius: 6px;
+}
+
+:root:not([data-theme]),
+:root[data-theme="editorial"] {
+  color-scheme: light;
+  --bg: #f7f4ed;
+  --bg-elevated: #fffcf6;
+  --bg-soft: #eee9de;
+  --text: #2c332e;
+  --muted: #5e655d;
+  --subtle: #6c7068;
+  --border: #dbd7cc;
+  --border-strong: #acae9f;
+  --accent: #38604b;
+  --accent-strong: #264b37;
+  --accent-warm: #5e655d;
+  --black: 44, 51, 46;
+  --gray: 94, 101, 93;
+  --gray-light: 238, 233, 222;
+  --gray-dark: 44, 51, 46;
+  --box-shadow: none;
+  --heading-font: Georgia, "Times New Roman", serif;
+  --card-radius: 2px;
 }
 
 * {
   box-sizing: border-box;
 }
 
-/* ---------- Starfield ----------
-   Four fixed layers paint the sky, back to front:
-   html::before  nebula clouds
-   body::before  far stars  (small, dim, slow)
-   body::after   near stars (large, bright, faster -> parallax)
-   html::after   occasional shooting star
-   Each star layer drifts exactly one tile, so the loop is seamless. */
-
 html {
   min-height: 100%;
   overflow-x: hidden;
-  background:
-    radial-gradient(
-      circle at 12% 18%,
-      rgba(79, 209, 197, 0.16),
-      transparent 34%
-    ),
-    radial-gradient(
-      circle at 82% 6%,
-      rgba(246, 193, 119, 0.1),
-      transparent 32%
-    ),
-    radial-gradient(
-      circle at 88% 78%,
-      rgba(244, 114, 182, 0.09),
-      transparent 34%
-    ),
-    linear-gradient(180deg, #04060f 0%, #0a1220 46%, #05070f 100%);
-  background-attachment: fixed;
-}
-
-@keyframes drift-far {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-
-  to {
-    transform: translate3d(-320px, 320px, 0);
-  }
-}
-
-@keyframes drift-near {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-
-  to {
-    transform: translate3d(-700px, 700px, 0);
-  }
-}
-
-@keyframes twinkle-far {
-  0%,
-  100% {
-    opacity: 0.55;
-  }
-
-  50% {
-    opacity: 0.85;
-  }
-}
-
-@keyframes twinkle-near {
-  0%,
-  100% {
-    opacity: 0.8;
-  }
-
-  45% {
-    opacity: 0.45;
-  }
-}
-
-@keyframes nebula-breathe {
-  0%,
-  100% {
-    opacity: 0.55;
-    transform: scale(1);
-  }
-
-  50% {
-    opacity: 0.85;
-    transform: scale(1.08);
-  }
-}
-
-@keyframes shooting-star {
-  0%,
-  92% {
-    opacity: 0;
-    transform: translate3d(0, 0, 0) rotate(16deg);
-  }
-
-  93% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-    transform: translate3d(115vw, 32vh, 0) rotate(16deg);
-  }
-}
-
-html::before {
-  position: fixed;
-  z-index: 0;
-  inset: -20vmax;
-  background:
-    radial-gradient(
-      closest-side circle at 22% 28%,
-      rgba(79, 209, 197, 0.2),
-      transparent
-    ),
-    radial-gradient(
-      closest-side circle at 74% 16%,
-      rgba(125, 211, 252, 0.16),
-      transparent
-    ),
-    radial-gradient(
-      closest-side circle at 62% 82%,
-      rgba(244, 114, 182, 0.14),
-      transparent
-    ),
-    radial-gradient(
-      closest-side circle at 12% 74%,
-      rgba(246, 193, 119, 0.1),
-      transparent
-    );
-  background-repeat: no-repeat;
-  background-size:
-    62% 58%,
-    54% 62%,
-    58% 54%,
-    46% 50%;
-  filter: blur(28px);
-  animation: nebula-breathe 26s ease-in-out infinite;
-  content: "";
-  pointer-events: none;
-  will-change: opacity, transform;
-}
-
-body::before {
-  position: fixed;
-  z-index: 0;
-  inset: -700px;
-  background-image:
-    radial-gradient(
-      circle 1.1px at 20px 30px,
-      rgba(255, 255, 255, 0.95),
-      transparent
-    ),
-    radial-gradient(
-      circle 0.9px at 150px 180px,
-      rgba(191, 230, 255, 0.85),
-      transparent
-    ),
-    radial-gradient(
-      circle 1px at 90px 75px,
-      rgba(255, 255, 255, 0.75),
-      transparent
-    ),
-    radial-gradient(
-      circle 1.1px at 264px 232px,
-      rgba(255, 255, 255, 0.9),
-      transparent
-    ),
-    radial-gradient(
-      circle 0.9px at 160px 120px,
-      rgba(255, 217, 160, 0.8),
-      transparent
-    ),
-    radial-gradient(
-      circle 1px at 228px 204px,
-      rgba(255, 255, 255, 0.7),
-      transparent
-    ),
-    radial-gradient(
-      circle 1.2px at 215px 40px,
-      rgba(191, 230, 255, 0.95),
-      transparent
-    ),
-    radial-gradient(
-      circle 0.9px at 196px 272px,
-      rgba(255, 255, 255, 0.8),
-      transparent
-    ),
-    radial-gradient(
-      circle 1px at 270px 160px,
-      rgba(255, 255, 255, 0.65),
-      transparent
-    ),
-    radial-gradient(
-      circle 1.1px at 40px 240px,
-      rgba(191, 230, 255, 0.8),
-      transparent
-    ),
-    radial-gradient(
-      circle 0.9px at 110px 308px,
-      rgba(255, 255, 255, 0.85),
-      transparent
-    ),
-    radial-gradient(
-      circle 1px at 300px 15px,
-      rgba(255, 255, 255, 0.7),
-      transparent
-    ),
-    radial-gradient(
-      circle 1.1px at 200px 296px,
-      rgba(255, 217, 160, 0.7),
-      transparent
-    ),
-    radial-gradient(
-      circle 0.9px at 65px 300px,
-      rgba(255, 255, 255, 0.75),
-      transparent
-    ),
-    radial-gradient(
-      circle 1px at 284px 164px,
-      rgba(191, 230, 255, 0.85),
-      transparent
-    ),
-    radial-gradient(
-      circle 1.2px at 312px 104px,
-      rgba(255, 255, 255, 0.7),
-      transparent
-    ),
-    radial-gradient(
-      circle 0.9px at 8px 128px,
-      rgba(255, 255, 255, 0.8),
-      transparent
-    ),
-    radial-gradient(
-      circle 1px at 128px 8px,
-      rgba(191, 230, 255, 0.75),
-      transparent
-    ),
-    radial-gradient(
-      circle 1.1px at 176px 88px,
-      rgba(255, 255, 255, 0.85),
-      transparent
-    ),
-    radial-gradient(
-      circle 0.9px at 52px 184px,
-      rgba(255, 255, 255, 0.7),
-      transparent
-    ),
-    radial-gradient(
-      circle 1px at 240px 116px,
-      rgba(255, 217, 160, 0.65),
-      transparent
-    ),
-    radial-gradient(
-      circle 1.1px at 96px 252px,
-      rgba(191, 230, 255, 0.8),
-      transparent
-    );
-  background-repeat: repeat;
-  background-size: 320px 320px;
-  animation:
-    drift-far 200s linear infinite,
-    twinkle-far 9s ease-in-out infinite;
-  content: "";
-  opacity: 0.9;
-  pointer-events: none;
-  will-change: transform, opacity;
-}
-
-body::after {
-  position: fixed;
-  z-index: 0;
-  inset: -700px;
-  background-image:
-    radial-gradient(
-      circle 10px at 60px 90px,
-      rgba(255, 255, 255, 0.3),
-      transparent
-    ),
-    radial-gradient(circle 1.9px at 60px 90px, #ffffff, transparent),
-    radial-gradient(
-      circle 11px at 300px 60px,
-      rgba(125, 211, 252, 0.34),
-      transparent
-    ),
-    radial-gradient(circle 2px at 300px 60px, #eaf8ff, transparent),
-    radial-gradient(
-      circle 10px at 540px 150px,
-      rgba(246, 193, 119, 0.3),
-      transparent
-    ),
-    radial-gradient(circle 1.8px at 540px 150px, #fff1d8, transparent),
-    radial-gradient(
-      circle 9px at 180px 320px,
-      rgba(255, 255, 255, 0.26),
-      transparent
-    ),
-    radial-gradient(circle 1.7px at 180px 320px, #ffffff, transparent),
-    radial-gradient(
-      circle 10px at 420px 240px,
-      rgba(125, 211, 252, 0.28),
-      transparent
-    ),
-    radial-gradient(circle 1.8px at 420px 240px, #eaf8ff, transparent),
-    radial-gradient(
-      circle 9px at 640px 420px,
-      rgba(255, 255, 255, 0.26),
-      transparent
-    ),
-    radial-gradient(circle 1.7px at 640px 420px, #ffffff, transparent),
-    radial-gradient(
-      circle 11px at 100px 540px,
-      rgba(79, 209, 197, 0.3),
-      transparent
-    ),
-    radial-gradient(circle 1.9px at 100px 540px, #e4fffb, transparent),
-    radial-gradient(
-      circle 9px at 380px 470px,
-      rgba(255, 255, 255, 0.24),
-      transparent
-    ),
-    radial-gradient(circle 1.6px at 380px 470px, #ffffff, transparent),
-    radial-gradient(
-      circle 10px at 620px 640px,
-      rgba(246, 193, 119, 0.26),
-      transparent
-    ),
-    radial-gradient(circle 1.8px at 620px 640px, #fff1d8, transparent),
-    radial-gradient(
-      circle 9px at 250px 660px,
-      rgba(255, 255, 255, 0.24),
-      transparent
-    ),
-    radial-gradient(circle 1.7px at 250px 660px, #ffffff, transparent),
-    radial-gradient(
-      circle 10px at 470px 380px,
-      rgba(244, 114, 182, 0.24),
-      transparent
-    ),
-    radial-gradient(circle 1.7px at 470px 380px, #ffeaf6, transparent),
-    radial-gradient(
-      circle 9px at 30px 260px,
-      rgba(255, 255, 255, 0.24),
-      transparent
-    ),
-    radial-gradient(circle 1.6px at 30px 260px, #ffffff, transparent);
-  background-repeat: repeat;
-  background-size: 700px 700px;
-  animation:
-    drift-near 120s linear infinite,
-    twinkle-near 6.5s ease-in-out infinite;
-  content: "";
-  pointer-events: none;
-  will-change: transform, opacity;
-}
-
-html::after {
-  position: fixed;
-  top: 14%;
-  left: -12%;
-  z-index: 0;
-  width: 170px;
-  height: 2px;
-  border-radius: 999px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(191, 230, 255, 0.55) 55%,
-    #ffffff
-  );
-  animation: shooting-star 17s ease-in infinite;
-  content: "";
-  opacity: 0;
-  pointer-events: none;
-  will-change: transform, opacity;
+  background: var(--bg);
 }
 
 /* ---------- Base ---------- */
@@ -439,11 +117,12 @@ h6 {
   margin: 0 0 0.75rem;
   color: var(--text);
   line-height: 1.1;
+  font-family: var(--heading-font);
 }
 
 h1 {
   margin-bottom: 1rem;
-  font-size: clamp(2.75rem, 7vw, 5.5rem);
+  font-size: clamp(2.75rem, 6vw, 4.5rem);
   line-height: 1;
   letter-spacing: -0.02em;
 }
@@ -517,8 +196,8 @@ li::marker {
   border: 1px solid var(--border);
   border-radius: 999px;
   color: var(--accent-warm);
-  background: rgba(246, 193, 119, 0.08);
-  content: "Profile";
+  background: var(--bg-soft);
+  content: "Engineering & leadership";
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -540,7 +219,7 @@ li::marker {
 .home-hero p {
   max-width: 40ch;
   margin-bottom: 0;
-  color: #d9e7ff;
+  color: var(--text);
   font-size: clamp(1.15rem, 2.4vw, 1.5rem);
   line-height: 1.5;
 }
@@ -574,11 +253,9 @@ li::marker {
   margin: 0;
   padding: 1.35rem;
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: var(--card-radius);
   color: var(--text);
-  background:
-    linear-gradient(135deg, rgba(79, 209, 197, 0.08), transparent 42%),
-    var(--bg-elevated);
+  background: var(--bg-elevated);
   box-shadow: var(--box-shadow);
   font-size: 1.05rem;
   line-height: 1.4;
@@ -701,10 +378,8 @@ li::marker {
   min-width: 0;
   padding: clamp(1.25rem, 3vw, 1.75rem);
   border: 1px solid var(--border);
-  border-radius: 14px;
-  background:
-    linear-gradient(135deg, rgba(79, 209, 197, 0.07), transparent 55%),
-    var(--bg-elevated);
+  border-radius: var(--card-radius);
+  background: var(--bg-elevated);
 }
 
 .education-card > p:not(.resume-note),
@@ -734,7 +409,7 @@ li::marker {
   padding: 0.35rem 0.75rem;
   border: 1px solid var(--border);
   border-radius: 999px;
-  color: #d9e7ff;
+  color: var(--text);
   background: var(--bg-soft);
   font-size: 0.82rem;
   line-height: 1.4;
@@ -779,7 +454,7 @@ li::marker {
   padding: 0.45rem 0.75rem;
   border: 1px solid var(--border);
   border-radius: 999px;
-  color: #d9e7ff;
+  color: var(--text);
   background: var(--bg-soft);
   font-size: 0.8rem;
   font-weight: 700;
@@ -788,9 +463,9 @@ li::marker {
 }
 
 .project-links a:first-child {
-  border-color: rgba(79, 209, 197, 0.45);
+  border-color: var(--border-strong);
   color: var(--accent);
-  background: rgba(79, 209, 197, 0.08);
+  background: var(--bg-soft);
 }
 
 .project-links a:hover {
@@ -824,14 +499,14 @@ code {
   border: 1px solid var(--border);
   border-radius: 4px;
   color: var(--accent-warm);
-  background-color: rgba(255, 255, 255, 0.06);
+  background-color: var(--bg-soft);
 }
 
 pre {
   padding: 1.5em;
   border: 1px solid var(--border);
   border-radius: 8px;
-  background: rgba(0, 0, 0, 0.35);
+  background: var(--bg-soft);
 }
 
 pre > code {
@@ -920,4 +595,9 @@ hr {
   clip: rect(1px, 1px, 1px, 1px);
   clip-path: inset(50%);
   white-space: nowrap;
+}
+
+:where(a, button, select):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
 }

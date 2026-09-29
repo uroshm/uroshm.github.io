@@ -7,16 +7,43 @@ import HeaderLink from "./HeaderLink.astro";
     <div class="internal-links">
       <HeaderLink href="/">Home</HeaderLink>
     </div>
+    {
+      import.meta.env.DEV && (
+        <div class="theme-control" hidden>
+          <label for="portfolio-theme">Theme</label>
+          <select id="portfolio-theme">
+            <option value="editorial">Editorial</option>
+            <option value="executive">Executive</option>
+            <option value="graphite">Graphite</option>
+          </select>
+        </div>
+      )
+    }
   </nav>
 </header>
+<script>
+  const picker = document.querySelector<HTMLSelectElement>("#portfolio-theme");
+  const control = document.querySelector<HTMLElement>(".theme-control");
+  if (picker && control) {
+    picker.value = document.documentElement.dataset.theme ?? "editorial";
+    control.hidden = false;
+    picker.addEventListener("change", () => {
+      document.documentElement.dataset.theme = picker.value;
+      try {
+        localStorage.setItem("portfolio-theme", picker.value);
+      } catch {
+        // Theme switching still works without persistence.
+      }
+    });
+  }
+</script>
 <style>
   header {
     position: sticky;
     top: 0;
     z-index: 10;
     border-bottom: 1px solid var(--border);
-    background: rgba(5, 8, 18, 0.82);
-    backdrop-filter: blur(18px);
+    background: var(--bg);
   }
 
   nav {
@@ -42,5 +69,24 @@ import HeaderLink from "./HeaderLink.astro";
 
   nav a.active {
     color: var(--text);
+  }
+
+  .theme-control:not([hidden]) {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  select {
+    min-height: 44px;
+    padding: 0.5rem 0.65rem;
+    border: 1px solid var(--border-strong);
+    border-radius: 6px;
+    color: var(--text);
+    background: var(--bg-elevated);
+    font: inherit;
+    cursor: pointer;
   }
 </style>
